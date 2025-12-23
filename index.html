@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Varshith Bala | Data Scientist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #0f172a, #1d3557, #06b6d4);
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.16);
+      --text-main: #e5e7eb;
+      --text-soft: #9ca3af;
+      --chip-bg: rgba(15, 23, 42, 0.9);
+      --card-bg: rgba(15, 23, 42, 0.95);
+      --border-subtle: rgba(148, 163, 184, 0.2);
+      --radius-xl: 18px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 40%, #020617 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 24px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .noise {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      opacity: 0.08;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.9'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+      z-index: 0;
+    }
+
+    .shell {
+      max-width: 1120px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .glass {
+      background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.2), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.18), transparent 60%),
+                  linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.96));
+      border-radius: 28px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      box-shadow: var(--shadow-soft);
+      padding: 28px 24px 24px;
+      backdrop-filter: blur(26px) saturate(140%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.15), transparent 40%),
+                  radial-gradient(circle at 100% 100%, rgba(129, 140, 248, 0.15), transparent 45%);
+      opacity: 0.8;
+      z-index: -1;
+      animation: subtleGlow 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes subtleGlow {
+      0% { transform: translate3d(-10px, 6px, 0) scale(1); }
+      100% { transform: translate3d(15px, -8px, 0) scale(1.05); }
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 2.4fr) minmax(0, 1.7fr);
+      gap: 24px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    @media (max-width: 800px) {
+      header {
+        grid-template-columns: 1fr;
+      }
+      body {
+        padding: 16px;
+      }
+      .glass {
+        padding: 20px 18px 18px;
+      }
+    }
+
+    .tagline-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.6);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 55%),
+                  rgba(15, 23, 42, 0.95);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tagline-pill::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(248, 250, 252, 0.07) 40%, transparent 85%);
+      transform: translateX(-100%);
+      animation: sheen 4.5s ease-in-out infinite;
+    }
+
+    @keyframes sheen {
+      0%, 55% { transform: translateX(-120%); }
+      70% { transform: translateX(60%); }
+      100% { transform: translateX(120%); }
+    }
+
+    .name {
+      font-size: clamp(30px, 4vw, 34px);
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .role {
+      font-size: 16px;
+      color: var(--text-soft);
+      margin-bottom: 14px;
+      max-width: 520px;
+      line-height: 1.5;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      font-size: 13px;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    .meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #bbf7d0, #22c55e);
+      box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.18);
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 8px 14px;
+      font-size: 13px;
+      color: var(--text-main);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.96));
+      transition: border 160ms ease, background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .btn-primary {
+      border-color: rgba(56, 189, 248, 0.9);
+      background: linear-gradient(135deg, #0ea5e9, #22d3ee);
+      color: #0f172a;
+      box-shadow: 0 14px 30px rgba(8, 47, 73, 0.55);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(248, 250, 252, 0.5);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.8);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #38bdf8, #22d3ee);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .badge {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.92);
+      color: var(--text-soft);
+    }
+
+    .profile-pane {
+      padding: 14px 14px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.98));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .orb {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      background: conic-gradient(from 180deg, rgba(56, 189, 248, 0.08), rgba(129, 140, 248, 0.16), rgba(56, 189, 248, 0.06));
+      top: -40px;
+      right: -40px;
+      filter: blur(1px);
+      animation: floatOrb 22s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+      100% { transform: translate3d(-10px, 12px, 0) rotate(12deg); }
+    }
+
+    .profile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .profile-title {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #bbf7d0, #22c55e);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.28);
+    }
+
+    .profile-body {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: conic-gradient(from 120deg, #0ea5e9, #22d3ee, #818cf8, #0ea5e9);
+      padding: 2px;
+      position: relative;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.85);
+    }
+
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      background: radial-gradient(circle at 20% 0, #1f2937, #020617);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 22px;
+      color: #e5e7eb;
+    }
+
+    .profile-text {
+      font-size: 13px;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .pill {
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.3fr);
+      gap: 22px;
+      margin-top: 22px;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    section {
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+
+    .section-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      background: var(--card-bg);
+      padding: 14px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: var(--chip-bg);
+      color: var(--text-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.8);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.35);
+    }
+
+    .experience-list,
+    .project-list,
+    .edu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .item {
+      padding: 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.98));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .item-title {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .item-meta {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .item-sub {
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-bottom: 4px;
+    }
+
+    .item-bullets {
+      margin-left: 14px;
+      list-style: disc;
+      color: var(--text-soft);
+      padding-left: 6px;
+    }
+
+    .item-bullets li {
+      margin-bottom: 3px;
+    }
+
+    .pill-inline {
+      display: inline-flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .pill-inline span {
+      font-size: 11px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .cert-grid,
+    .lead-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .cert-title {
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .footer {
+      margin-top: 8px;
+      font-size: 11px;
+      color: var(--text-soft);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .accent-under {
+      background: linear-gradient(to right, rgba(56, 189, 248, 0.4), transparent);
+      height: 1px;
+      border-radius: 999px;
+      margin-top: 3px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+<div class="noise"></div>
+
+<div class="shell">
+  <div class="glass">
+    <header>
+      <div>
+        <div class="tagline-pill">
+          <span>Data · Analytics · AI</span>
+        </div>
+        <h1 class="name">Varshith Bala</h1>
+        <p class="role">
+          Data Scientist and Data Analyst specializing in machine learning, cloud analytics, and data storytelling to turn complex datasets into actionable product and business decisions.
+        </p>
+        <div class="meta">
+          <span><span class="dot"></span> Open to full-time roles</span>
+          <span>Denton, Texas, USA</span>
+        </div>
+        <div class="links">
+          <a class="btn btn-primary" href="mailto:varshithbala0702@gmail.com">
+            Contact me
+          </a>
+          <a class="btn" href="https://www.linkedin.com/in/varshith-bala-283b33289" target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
+          <!-- TODO: replace with your real GitHub portfolio repo link once created -->
+          <a class="btn" href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+        </div>
+        <div class="badge-row">
+          <span class="badge">Machine Learning</span>
+          <span class="badge">Cloud Analytics (AWS, GCP)</span>
+          <span class="badge">End‑to‑end Data Pipelines</span>
+        </div>
+      </div>
+
+      <aside class="profile-pane">
+        <div class="orb"></div>
+        <div class="profile-header">
+          <span class="profile-title">Profile snapshot</span>
+          <span class="status-dot"></span>
+        </div>
+        <div class="profile-body">
+          <div class="avatar">
+            <div class="avatar-inner">VB</div>
+          </div>
+          <div class="profile-text">
+            Aspiring data professional with hands‑on experience across healthcare, cybersecurity, logistics, and sports analytics, delivering robust models and clear, decision‑ready insights.
+            <div class="pill-row">
+              <span class="pill">Python · R · SQL</span>
+              <span class="pill">Tableau · Power BI</span>
+              <span class="pill">BigQuery · Spark</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </header>
+
+    <main>
+      <section>
+        <h2 class="section-title">Experience</h2>
+        <div class="section-card experience-list">
+          <article class="item">
+            <div class="item-header">
+              <div>
+                <div class="item-title">Data Analyst Intern · Phoenix Global</div>
+                <div class="item-sub">Sports analytics · IPL match data</div>
+              </div>
+              <div class="item-meta">May 2022 – Jun 2022 · Remote</div>
+            </div>
+            <ul class="item-bullets">
+              <li>Analyzed 2008–2019 IPL match data using SQL and Excel to streamline data cleaning and preprocessing for multi‑season datasets.</li>
+              <li>Developed interactive dashboards in Excel and Tableau to visualize player performance, team statistics, and win–loss patterns for stakeholders.</li>
+              <li>Built predictive models for optimal player combinations, improving lineup strategy accuracy by approximately 15%.</li>
+            </ul>
+            <div class="pill-inline">
+              <span>SQL</span><span>Excel</span><span>Tableau</span><span>Sports Analytics</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Projects</h2>
+        <div class="section-card project-list">
+          <article class="item">
+            <div class="item-header">
+              <div class="item-title">X‑Ray Image Classification</div>
+              <div class="item-meta">Python · TensorFlow · OpenCV</div>
+            </div>
+            <p class="item-sub">AI‑driven healthcare diagnostics for pneumonia, COVID‑19, and normal lung conditions.</p>
+            <ul class="item-bullets">
+              <li>Built an automated ML pipeline on 9,000 X‑ray images with preprocessing, augmentation, and feature extraction.</li>
+              <li>Trained K‑Nearest Neighbors and Random Forest models with hyperparameter tuning and validation for robust performance.</li>
+              <li>Achieved around 91% classification accuracy with strong precision, recall, and F1‑score across classes.</li>
+            </ul>
+            <div class="pill-inline">
+              <span>Classification</span><span>Computer Vision</span><span>Model Evaluation</span>
+            </div>
+          </article>
+
+          <article class="item">
+            <div class="item-header">
+              <div class="item-title">Cybersecurity Threat Detection</div>
+              <div class="item-meta">Python · Tableau · Power BI</div>
+            </div>
+            <p class="item-sub">Log‑based analytics for detecting anomalous and high‑risk activity.</p>
+            <ul class="item-bullets">
+              <li>Detected 15+ unique threat patterns through exploratory log analysis and anomaly detection techniques.</li>
+              <li>Improved incident response time by roughly 30% using risk‑score visualizations and alerting dashboards.</li>
+            </ul>
+            <div class="pill-inline">
+              <span>Anomaly Detection</span><span>Dashboards</span><span>Security Analytics</span>
+            </div>
+          </article>
+
+          <article class="item">
+            <div class="item-header">
+              <div class="item-title">COVID‑19 Death Analysis on Cloud</div>
+              <div class="item-meta">BigQuery · Hive · Spark</div>
+            </div>
+            <p class="item-sub">Cloud‑scale analysis of U.S. mortality patterns by age, sex, and location.</p>
+            <ul class="item-bullets">
+              <li>Preprocessed public health datasets using OpenRefine to guarantee high‑quality analytical inputs.</li>
+              <li>Executed distributed queries across BigQuery, Hive, and Spark with high query accuracy, comparing performance and insights.</li>
+              <li>Identified high‑risk states and demographic segments to inform public health interventions.</li>
+            </ul>
+            <div class="pill-inline">
+              <span>Cloud Analytics</span><span>Distributed SQL</span>
+            </div>
+          </article>
+
+          <article class="item">
+            <div class="item-header">
+              <div class="item-title">Postal Delivery Tracking System</div>
+              <div class="item-meta">MySQL · SQL Server</div>
+            </div>
+            <p class="item-sub">Relational design for real‑time package and route management.</p>
+            <ul class="item-bullets">
+              <li>Designed normalized schemas, ER diagrams, and data dictionaries for a scalable tracking database.</li>
+              <li>Implemented complex SQL queries for insertion, retrieval, and reporting of delivery performance and costs.</li>
+            </ul>
+            <div class="pill-inline">
+              <span>Database Design</span><span>Query Optimization</span>
+            </div>
+          </article>
+
+          <article class="item">
+            <div class="item-header">
+              <div class="item-title">IoT‑Based Water Turbidity Monitoring</div>
+              <div class="item-meta">Arduino · AWS IoT Core</div>
+            </div>
+            <p class="item-sub">Real‑time monitoring of water quality across test environments.</p>
+            <ul class="item-bullets">
+              <li>Integrated sensors, Arduino, and AWS IoT Core to stream turbidity data for three test setups.</li>
+              <li>Built real‑time dashboards and alerts for turbidity spikes to support rapid intervention.</li>
+            </ul>
+            <div class="pill-inline">
+              <span>IoT</span><span>Real‑time Dashboards</span>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <main>
+      <section>
+        <h2 class="section-title">Skills</h2>
+        <div class="section-card">
+          <div class="chips">
+            <span class="chip"><span class="chip-dot"></span>Python · Pandas · NumPy · Scikit‑learn</span>
+            <span class="chip"><span class="chip-dot"></span>R · SQL (MySQL, SQL Server)</span>
+            <span class="chip"><span class="chip-dot"></span>MongoDB · ER Modeling · Query Optimization</span>
+            <span class="chip"><span class="chip-dot"></span>Tableau · Power BI · Excel (Power Query, Pivot)</span>
+            <span class="chip"><span class="chip-dot"></span>Google Cloud · BigQuery · Hive · Spark · AWS</span>
+            <span class="chip"><span class="chip-dot"></span>Regression · Classification · Clustering</span>
+            <span class="chip"><span class="chip-dot"></span>EDA · Statistical Analysis · Data Cleaning</span>
+            <span class="chip"><span class="chip-dot"></span>Generative AI · LLMs (GPT‑3.5/4, LLaMA)</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Education</h2>
+        <div class="section-card edu-list">
+          <article class="item">
+            <div class="item-header">
+              <div>
+                <div class="item-title">M.S. in Data Science</div>
+                <div class="item-sub">University of North Texas · Denton, TX</div>
+              </div>
+              <div class="item-meta">Dec 2025 · CGPA: 4.0 / 4.0</div>
+            </div>
+          </article>
+
+          <article class="item">
+            <div class="item-header">
+              <div>
+                <div class="item-title">B.Tech in Computer Science and Engineering</div>
+                <div class="item-sub">Gandhi Institute of Technology and Management · Visakhapatnam, India</div>
+              </div>
+              <div class="item-meta">Apr 2023 · CGPA: 8.78 / 10</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Certifications</h2>
+        <div class="section-card cert-grid">
+          <div>
+            <div class="cert-title">Generative AI with Large Language Models</div>
+            <div>DataCamp</div>
+          </div>
+          <div>
+            <div class="cert-title">Generative AI for Software Development</div>
+          </div>
+          <div>
+            <div class="cert-title">Associate AI Engineer for Data Scientists</div>
+            <div>DataCamp</div>
+          </div>
+          <div>
+            <div class="cert-title">AI and Cybersecurity Tools</div>
+            <div>IBM</div>
+          </div>
+          <div>
+            <div class="cert-title">Power BI</div>
+            <div>Microsoft</div>
+          </div>
+          <div>
+            <div class="cert-title">SQL Intermediate</div>
+            <div>HackerRank</div>
+          </div>
+          <div>
+            <div class="cert-title">Data Structures and Algorithms</div>
+            <div>University of San Diego</div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Leadership</h2>
+        <div class="section-card lead-list">
+          <div>
+            Recognized as a student leader for driving academic and co‑curricular initiatives during undergraduate studies.
+          </div>
+          <div>
+            Led activities at GUSAC (GITAM University Student Activity Center), organizing skill‑development workshops and engagement programs.
+          </div>
+          <div>
+            Volunteered with NGOs such as Alleviators and Lending Hands, coordinating outreach events and charity drives.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="footer">
+      <span>Last updated · 2025</span>
+      <span>Built with HTML &amp; CSS · Deployed via GitHub Pages</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
