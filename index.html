@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Varshith Bala | Portfolio</title>
+  <title>Varshith Bala | Data Science Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
@@ -13,6 +13,7 @@
       --accent-1: #f59e0b;
       --accent-2: #f97316;
       --accent-3: #22c55e;
+      --accent-linkedin: #0a66c2;
       --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
       --radius-xl: 32px;
     }
@@ -97,7 +98,7 @@
       background-size: cover;
       background-position: center 10%;
       background-repeat: no-repeat;
-      background-image: url("IMG_1155.jpeg"); /* your uploaded image */
+      background-image: url("IMG_1155.jpeg");
     }
 
     .hello {
@@ -131,6 +132,38 @@
       font-weight: 600;
     }
 
+    .contact-links {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .linkedin-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--accent-linkedin);
+      font-weight: 600;
+    }
+
+    .linkedin-logo {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      background: var(--accent-linkedin);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+
     .right {
       display: flex;
       flex-direction: column;
@@ -149,6 +182,7 @@
       color: var(--text-soft);
       line-height: 1.6;
       max-width: 540px;
+      margin-bottom: 6px;
     }
 
     .pill-row {
@@ -214,6 +248,23 @@
       box-shadow: 0 16px 40px rgba(15, 23, 42, 0.22);
     }
 
+    .section-heading {
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    .project-list {
+      font-size: 13px;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+
+    .project-list strong {
+      color: var(--text-main);
+    }
+
     .footer {
       font-size: 11px;
       color: var(--text-soft);
@@ -223,10 +274,15 @@
       flex-wrap: wrap;
       gap: 6px;
     }
+
+    a {
+      color: var(--accent-2);
+    }
   </style>
 </head>
 <body>
   <div class="shell">
+    <!-- LEFT: photo + basic contact -->
     <div class="left">
       <div class="photo-wrap">
         <div class="photo-inner"></div>
@@ -236,24 +292,59 @@
       <div class="role">Data Scientist &amp; Data Analyst</div>
 
       <div class="contact-line"><strong>Phone:</strong> +1‑346‑418‑6966</div>
-      <div class="contact-line"><strong>Email:</strong> varshithbala0702@gmail.com</div>
+      <div class="contact-line"><strong>Email:</strong> <a href="mailto:varshithbala0702@gmail.com">varshithbala0702@gmail.com</a></div>
       <div class="contact-line"><strong>Location:</strong> Denton, Texas, USA</div>
+
+      <div class="contact-links">
+        <a class="linkedin-link" href="https://www.linkedin.com/in/varshith-bala-283b33289" target="_blank" rel="noreferrer">
+          <span class="linkedin-logo">in</span>
+          <span>Connect on LinkedIn</span>
+        </a>
+      </div>
     </div>
 
+    <!-- RIGHT: intro, skills, projects, buttons -->
     <div class="right">
       <div>
         <div class="about-title">About Varshith Bala</div>
         <p class="about-text">
-          Aspiring data professional with hands‑on experience in machine learning,
-          predictive modeling, and cloud analytics across healthcare, cybersecurity,
-          logistics, and sports domains. Passionate about turning complex data into
-          clear insights that drive product and business decisions.
+          Data Scientist with hands‑on experience in machine learning, predictive and prescriptive modeling, and cloud‑based analytics on AWS and Google Cloud. 
+          Comfortable working end‑to‑end, from data collection and cleaning to modeling and dashboarding for business stakeholders. [file:1][file:79]
         </p>
+        <p class="about-text">
+          Experienced in building classification models, designing scalable SQL and big‑data pipelines, and creating executive‑ready visuals in Tableau and Power BI. 
+          Interested in roles where data is used to improve products, customer experience, and strategic decision‑making. [file:1][file:79]
+        </p>
+
         <div class="pill-row">
-          <span class="pill">Python · R · SQL</span>
-          <span class="pill">Machine Learning</span>
+          <span class="pill">Python · Pandas · NumPy · Scikit‑learn</span>
+          <span class="pill">R &amp; SQL (MySQL, SQL Server)</span>
           <span class="pill">Tableau &amp; Power BI</span>
-          <span class="pill">GCP · AWS · BigQuery</span>
+          <span class="pill">BigQuery · Hive · Spark · AWS</span>
+          <span class="pill">Machine Learning &amp; EDA</span>
+          <span class="pill">Generative AI &amp; LLMs</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-heading">Project overview</div>
+        <div class="project-list">
+          <p>
+            <strong>X‑Ray Image Classification:</strong> Built ML models to classify pneumonia, COVID‑19, and normal lung conditions using 9,000 X‑ray images, with preprocessing,
+            augmentation, and hyperparameter tuning to reach about 91% accuracy for healthcare diagnostics. [file:1][file:79]
+          </p>
+          <p>
+            <strong>Cybersecurity Threat Detection:</strong> Analyzed security logs, detected 15+ threat patterns, and reduced incident response time by around 30% by combining
+            anomaly detection with dashboards in Tableau and Power BI. [file:1][file:79]
+          </p>
+          <p>
+            <strong>COVID‑19 Cloud Analytics:</strong> Used BigQuery, Hive, and Spark to analyze U.S. COVID‑19 deaths by demographics, comparing query performance across platforms
+            and identifying high‑risk states and groups for public health insights. [file:1][file:79]
+          </p>
+          <p>
+            <strong>Data Engineering &amp; Systems:</strong> Designed a relational Postal Delivery Tracking System (MySQL/SQL Server) and an IoT‑based Water Turbidity Monitoring
+            solution with AWS IoT Core, supporting real‑time monitoring and reporting. [file:1][file:79]
+          </p>
         </div>
       </div>
 
@@ -261,7 +352,7 @@
         <button class="circle-btn circle-1" onclick="window.location.href='Varshith-Bala-Data-Scientist_Resume.docx'">
           <span>View Resume</span>
         </button>
-        <button class="circle-btn circle-2" onclick="window.location.href='#projects'">
+        <button class="circle-btn circle-2" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">
           <span>View Projects</span>
         </button>
         <button class="circle-btn circle-3" onclick="window.location.href='mailto:varshithbala0702@gmail.com'">
@@ -276,9 +367,7 @@
     </div>
   </div>
 
-  <!-- simple anchor target for "View Projects" for now -->
-  <div id="projects"></div>
+  <!-- simple anchor section so "View Projects" scrolls somewhere -->
+  <div id="projects" style="height: 1px;"></div>
 </body>
 </html>
-
-
