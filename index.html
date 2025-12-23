@@ -383,6 +383,28 @@
     .resume-list li {
       margin-bottom: 2px;
     }
+
+    /* Meeting Health project card */
+    .meeting-card {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 14px;
+      align-items: center;
+    }
+
+    .meeting-card img {
+      width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.4);
+      display: block;
+    }
+
+    @media (max-width: 800px) {
+      .meeting-card {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -459,6 +481,42 @@
               and an IoT‑based Water Turbidity Monitoring solution with AWS IoT Core for real‑time monitoring and
               reporting. [file:1][file:83]
             </p>
+
+            <!-- NEW Meeting Health Dashboard project -->
+            <div class="meeting-card" id="meeting-health">
+              <div>
+                <p>
+                  <strong>Meeting Health Dashboard (NLP, IEEE paper):</strong>
+                  Built a dashboard that analyzes meeting transcripts using speech‑to‑text and NLP to measure
+                  collaboration health, tension, and sentiment over time. The system aggregates sentiment,
+                  emotion, and topic signals into “meeting health” scores and visual cards, helping teams
+                  understand how constructive their conversations are. [file:87]
+                </p>
+                <p>
+                  The project includes:
+                </p>
+                <ul class="resume-list">
+                  <li>Whisper‑based transcription pipeline to convert audio into structured text for analysis.</li>
+                  <li>Sentiment and emotion detection to track positive, negative, and neutral tone during meetings.</li>
+                  <li>Metric cards summarizing collaboration, tension, and overall meeting health for each session.</li>
+                  <li>A published paper and reproducible codebase documenting design, modeling choices, and evaluation. [file:87]</li>
+                </ul>
+                <p style="margin-top:6px;">
+                  <strong>Code &amp; paper:</strong>
+                  <a href="https://github.com/VarshithBala7/Meeting_Health_Dashboard" target="_blank" rel="noreferrer">
+                    GitHub repository
+                  </a>
+                  ·
+                  <a href="Meeting_Health_Dashboard___IEEE___Varshith_Bala.pdf" target="_blank" rel="noreferrer">
+                    IEEE paper (PDF)
+                  </a>
+                </p>
+              </div>
+              <div>
+                <img src="meetingdashboard.jpg" alt="Meeting Health Dashboard overview" />
+              </div>
+            </div>
+            <!-- END new project -->
           </div>
         </div>
 
@@ -470,7 +528,7 @@
           </button>
           <!-- Scrolls to project text -->
           <button class="circle-btn circle-2"
-                  onclick="document.getElementById('resume-projects').scrollIntoView({behavior: 'smooth'})">
+                  onclick="document.getElementById('meeting-health').scrollIntoView({behavior: 'smooth'})">
             <span>View Projects</span>
           </button>
           <!-- Opens email -->
