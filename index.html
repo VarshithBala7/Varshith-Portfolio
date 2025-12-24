@@ -271,13 +271,13 @@
       font-size: 14px;
       color: var(--text-soft);
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(20px) scale(0.98);
       transition: opacity 480ms ease-out, transform 480ms ease-out;
     }
 
     .section-card.visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
 
     .section-title {
@@ -365,6 +365,10 @@
 
     .project-card:nth-child(4) {
       background-image: linear-gradient(135deg, #0ea5e9, #6366f1);
+    }
+
+    .project-card:nth-child(5) {
+      background-image: linear-gradient(135deg, #14b8a6, #6366f1);
     }
 
     .project-card:hover {
@@ -675,21 +679,21 @@
       I am currently pursuing an M.S. in Data Science at the University of North Texas, expecting to graduate in
       December 2025 with a 4.0 GPA. With a strong academic foundation and experience working across healthcare,
       cybersecurity, logistics, and conversational analytics, the goal is to use data to drive clear, measurable
-      impact. [file:1][file:83]
+      impact.
     </p>
     <p style="margin-top:8px;">
       Passion lies in building robust machine learning models and end‑to‑end analytics solutions that turn raw
       data into actionable insights. Comfortable working with Python, R, SQL, and cloud platforms like AWS and
       Google Cloud, as well as visualization tools such as Tableau and Power BI. Whether it is designing scalable
       data pipelines, developing predictive models, or crafting executive‑ready dashboards, solving complex
-      problems with clean, well‑structured code is a core focus. [file:1][file:83]
+      problems with clean, well‑structured code is a core focus.
     </p>
     <p style="margin-top:8px;">
       Hands‑on work includes a Data Analyst Internship with Phoenix Global, where SQL‑based data pipelines,
       cleaned multi‑year IPL datasets, and dashboards improved decision‑making around player selection and team
       strategy. Projects such as X‑ray image classification, cybersecurity threat detection, COVID‑19 cloud
       analytics, a postal delivery tracking database, and a Meeting Health Dashboard have strengthened both the
-      technical depth and the ability to communicate results clearly for business stakeholders. [file:1][file:83][file:87]
+      technical depth and the ability to communicate results clearly for business stakeholders.
     </p>
   </div>
 </section>
@@ -745,9 +749,9 @@
           <div class="timeline-role">Data Analyst Intern</div>
           <div class="timeline-sub">Phoenix Global · Sports analytics</div>
           <ul class="list">
-            <li>Created SQL‑based data pipelines to preprocess multi‑year IPL datasets, improving query efficiency and analysis accuracy. [file:1][file:83]</li>
-            <li>Built interactive dashboards in Excel and Tableau to visualize player performance, team statistics, and win‑loss trends. [file:1][file:83]</li>
-            <li>Applied advanced analytics to uncover hidden patterns in match data, supporting better lineup strategies and strategic planning. [file:1][file:83]</li>
+            <li>Created SQL‑based data pipelines to preprocess multi‑year IPL datasets, improving query efficiency and analysis accuracy.</li>
+            <li>Built interactive dashboards in Excel and Tableau to visualize player performance, team statistics, and win‑loss trends.</li>
+            <li>Applied advanced analytics to uncover hidden patterns in match data, supporting better lineup strategies and strategic planning.</li>
           </ul>
         </div>
       </div>
@@ -767,13 +771,13 @@
           <div class="project-meta">Python · TensorFlow · OpenCV · Healthcare</div>
           <p class="project-text">
             ML pipeline to classify pneumonia, COVID‑19, and normal lungs using 9,000 X‑ray images with
-            preprocessing and tuning to reach around 91% accuracy. [file:1][file:83]
+            preprocessing and tuning to reach around 91% accuracy.
           </p>
         </div>
         <div>
           <div class="project-tags">
-            <span class="project-tag">CNN / Classical ML</span>
-            <span class="project-tag">Image Processing</span>
+            <span class="project-tag">Computer Vision</span>
+            <span class="project-tag">Model Evaluation</span>
           </div>
         </div>
       </div>
@@ -784,7 +788,7 @@
           <div class="project-meta">Python · Tableau · Power BI</div>
           <p class="project-text">
             Log analytics project that detected more than 15 threat patterns and reduced incident response
-            time by roughly 30% using anomaly detection and risk‑score dashboards. [file:1][file:83]
+            time by roughly 30% using anomaly detection and risk‑score dashboards.
           </p>
         </div>
         <div>
@@ -801,13 +805,13 @@
           <div class="project-meta">BigQuery · Hive · Spark</div>
           <p class="project-text">
             Evaluated U.S. COVID‑19 deaths by demographics and compared query performance across BigQuery,
-            Hive, and Spark to highlight high‑risk states and groups. [file:1][file:83]
+            Hive, and Spark to highlight high‑risk states and groups.
           </p>
         </div>
         <div>
           <div class="project-tags">
             <span class="project-tag">Big Data</span>
-            <span class="project-tag">Cloud Analytics</span>
+            <span class="project-tag">Distributed SQL</span>
           </div>
         </div>
       </div>
@@ -818,7 +822,7 @@
           <div class="project-meta">MySQL · SQL Server</div>
           <p class="project-text">
             Designed a normalized relational database for packages, customers, and routes with ER diagrams
-            and SQL reports for delivery performance and cost breakdowns. [file:1][file:83]
+            and SQL reports for delivery performance and cost breakdowns.
           </p>
         </div>
         <div>
@@ -835,7 +839,7 @@
           <div class="project-meta">Whisper · Sentiment Analysis · Research Paper</div>
           <p class="project-text">
             NLP‑driven dashboard that measures collaboration health in meetings using speech‑to‑text,
-            sentiment, and emotion analysis over time. [file:87]
+            sentiment, and emotion analysis over time.
           </p>
         </div>
         <div>
@@ -868,7 +872,7 @@
 </section>
 
 <footer>
-  &copy; 2025 Varshith Bala · Hosted on GitHub Pages
+  &copy; 2025 Varshith Bala · All rights reserved.
 </footer>
 
 <!-- MODAL OVERLAY -->
@@ -886,7 +890,7 @@
 </div>
 
 <script>
-  // Intersection Observer to fade in sections
+  // Intersection Observer to fade in sections with a "page" feel
   const observer = new IntersectionObserver(
     entries => {
       entries.forEach(entry => {
@@ -895,7 +899,7 @@
         }
       });
     },
-    { threshold: 0.18 }
+    { threshold: 0.2 }
   );
 
   document.querySelectorAll('.section-card').forEach(card => observer.observe(card));
