@@ -99,7 +99,7 @@
       background: var(--bg-soft);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow-soft);
-      padding: 40px 18px 30px;
+      padding: 40px 18px 34px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -122,15 +122,18 @@
       position: relative;
       z-index: 1;
       max-width: 720px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .hero-photo-wrap {
-      width: 210px;
-      height: 210px;
+      width: 220px;
+      height: 220px;
       border-radius: 999px;
       background: conic-gradient(from 200deg, #60a5fa, #4f46e5, #22c55e, #f97316, #60a5fa);
       padding: 6px;
-      margin: 0 auto 18px;
+      margin: 0 auto 20px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -148,17 +151,28 @@
     }
 
     .hero-title {
-      font-size: clamp(26px, 3.2vw, 32px);
-      font-weight: 700;
+      font-size: clamp(32px, 4vw, 40px);
+      font-weight: 800;
       margin-bottom: 6px;
     }
 
-    .hero-highlight {
+    .hero-name {
       color: var(--accent);
     }
 
+    .hero-role {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    .hero-role span {
+      color: var(--text-main);
+    }
+
     .hero-subtitle {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-soft);
       margin-bottom: 14px;
     }
@@ -345,16 +359,21 @@
   </div>
 </header>
 
-<!-- HOME (ONLY HERO) -->
+<!-- HOME (CENTERED HERO ONLY) -->
 <section id="home" class="hero-wrap">
   <div class="hero-card">
     <div class="hero-content">
       <div class="hero-photo-wrap">
         <div class="hero-photo-inner"></div>
       </div>
-      <h1 class="hero-title">Hi, I&apos;m <span class="hero-highlight">Varshith Bala</span></h1>
+      <h1 class="hero-title">
+        Hi, I&apos;m <span class="hero-name">Varshith Bala</span>
+      </h1>
+      <div class="hero-role">
+        <span>Data Science Student</span> &nbsp;·&nbsp; Aspiring Data Scientist
+      </div>
       <p class="hero-subtitle">
-        Data Scientist specializing in machine learning, cloud analytics, and data storytelling.
+        Building data‑driven solutions with Python, SQL, and cloud platforms while exploring real‑world machine learning and analytics projects.
       </p>
 
       <div class="hero-buttons">
@@ -374,17 +393,18 @@
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT (FULL INTRO TEXT) -->
 <section id="about" class="section">
   <div class="section-card">
     <h2 class="section-title">About Me</h2>
     <p>
-      Data Scientist with hands‑on experience in machine learning, predictive and prescriptive modeling,
-      and cloud analytics on AWS and Google Cloud. Comfortable owning the full data lifecycle—from
-      collecting and cleaning large datasets with SQL and Python to building models and delivering
-      insights through dashboards in Tableau and Power BI. I enjoy working across domains including
-      healthcare, cybersecurity, sports, logistics, and IoT, and I focus on translating complex analysis
-      into clear, actionable recommendations for stakeholders.
+      I am currently pursuing an M.S. in Data Science at the University of North Texas, expecting to graduate in December 2025 with a 4.0 GPA. With a strong academic foundation and experience working across healthcare, cybersecurity, logistics, and IoT domains, I am committed to using data to drive clear, measurable impact. [file:1][file:83]
+    </p>
+    <p style="margin-top:8px;">
+      My passion lies in building robust machine learning models and end‑to‑end analytics solutions that turn raw data into actionable insights. I have hands‑on experience with Python, R, SQL, and cloud platforms such as AWS and Google Cloud, along with tools like Tableau and Power BI. Whether it is designing scalable data pipelines, developing predictive models, or crafting executive‑ready dashboards, I enjoy solving complex problems with clean, well‑structured code and thoughtful analysis. [file:1][file:83]
+    </p>
+    <p style="margin-top:8px;">
+      Beyond coursework, I have worked as a Data Analyst Intern at Phoenix Global, where I built SQL‑based data pipelines, automated cleaning of multi‑year IPL datasets, and created dashboards that improved decision‑making around player selection and team strategy. These projects, along with building systems like an X‑ray image classifier, a cybersecurity threat detection pipeline, and a postal delivery tracking database, have strengthened both my technical depth and my ability to communicate complex results in a clear, business‑focused way. Looking ahead, I aspire to grow as a Data Scientist, contributing to teams that build reliable, data‑driven products and analytics platforms, while continuously learning and applying best practices in real‑world environments. [file:1][file:83]
     </p>
   </div>
 </section>
@@ -435,9 +455,9 @@
       May 2022 – Aug 2022 · Sports analytics
     </p>
     <ul class="list">
-      <li>Created SQL‑based data pipelines to preprocess multi‑year IPL sports datasets, improving query efficiency and analysis accuracy.</li>
-      <li>Built interactive dashboards in Excel and Tableau to visualize player performance, team statistics, and win‑loss trends for decision‑makers.</li>
-      <li>Applied advanced analytics to uncover hidden patterns in match data, supporting better lineup strategies and strategic planning.</li>
+      <li>Created SQL‑based data pipelines to preprocess multi‑year IPL sports datasets, improving query efficiency and analysis accuracy. [file:1][file:83]</li>
+      <li>Built interactive dashboards in Excel and Tableau to visualize player performance, team statistics, and win‑loss trends for decision‑makers. [file:1][file:83]</li>
+      <li>Applied advanced analytics to uncover hidden patterns in match data, supporting better lineup strategies and strategic planning. [file:1][file:83]</li>
     </ul>
   </div>
 </section>
@@ -453,8 +473,8 @@
         <span class="project-meta">Python · TensorFlow · OpenCV · Healthcare ML</span>
       </div>
       <ul class="list">
-        <li>Developed an ML pipeline to classify pneumonia, COVID‑19, and normal lung conditions using 9,000 chest X‑ray images.</li>
-        <li>Implemented preprocessing, augmentation, and feature extraction, then trained KNN and Random Forest models with hyperparameter tuning to reach about 91% accuracy.</li>
+        <li>Developed an ML pipeline to classify pneumonia, COVID‑19, and normal lung conditions using 9,000 chest X‑ray images. [file:1][file:83]</li>
+        <li>Implemented preprocessing, augmentation, and feature extraction, then trained KNN and Random Forest models with hyperparameter tuning to reach about 91% accuracy. [file:1][file:83]</li>
       </ul>
     </div>
 
@@ -464,8 +484,8 @@
         <span class="project-meta">Python · Tableau · Power BI</span>
       </div>
       <ul class="list">
-        <li>Analyzed security logs to detect more than 15 unique threat patterns and improve incident response time by roughly 30%.</li>
-        <li>Built Tableau and Power BI dashboards that surface risk scores and suspicious activity trends for security teams.</li>
+        <li>Analyzed security logs to detect more than 15 unique threat patterns and improve incident response time by roughly 30%. [file:1][file:83]</li>
+        <li>Built Tableau and Power BI dashboards that surface risk scores and suspicious activity trends for security teams. [file:1][file:83]</li>
       </ul>
     </div>
 
@@ -475,8 +495,8 @@
         <span class="project-meta">BigQuery · Hive · Spark</span>
       </div>
       <ul class="list">
-        <li>Used BigQuery, Hive, and Spark to analyze U.S. COVID‑19 deaths by age, sex, and location across multiple cloud platforms.</li>
-        <li>Identified high‑risk states and demographic groups and compared query performance between engines to guide future analytics choices.</li>
+        <li>Used BigQuery, Hive, and Spark to analyze U.S. COVID‑19 deaths by age, sex, and location across multiple cloud platforms. [file:1][file:83]</li>
+        <li>Identified high‑risk states and demographic groups and compared query performance between engines to guide future analytics choices. [file:1][file:83]</li>
       </ul>
     </div>
 
@@ -486,19 +506,8 @@
         <span class="project-meta">MySQL · SQL Server</span>
       </div>
       <ul class="list">
-        <li>Designed and implemented a relational database to manage packages, customers, and delivery routes for a real‑time tracking system.</li>
-        <li>Created normalized tables, ER diagrams, and reporting queries for delivery performance and cost summaries.</li>
-      </ul>
-    </div>
-
-    <div class="project-card">
-      <div class="project-head">
-        <h3>IoT‑Based Water Turbidity Monitoring</h3>
-        <span class="project-meta">Arduino · Sensors · AWS IoT Core</span>
-      </div>
-      <ul class="list">
-        <li>Built an IoT solution with Arduino, sensors, and AWS IoT Core to monitor water turbidity across multiple test environments.</li>
-        <li>Streamed sensor data to real‑time dashboards and configured alerts for turbidity spikes to support rapid intervention.</li>
+        <li>Designed and implemented a relational database to manage packages, customers, and delivery routes for a real‑time tracking system. [file:1][file:83]</li>
+        <li>Created normalized tables, ER diagrams, and reporting queries for delivery performance and cost summaries. [file:1][file:83]</li>
       </ul>
     </div>
 
@@ -511,12 +520,12 @@
         <div>
           <p>
             Built an NLP‑driven dashboard that evaluates the “health” of meetings by analyzing transcripts for sentiment,
-            emotion, and collaboration patterns over time.
+            emotion, and collaboration patterns over time. [file:87]
           </p>
           <ul class="list">
-            <li>Used Whisper‑based transcription to convert meeting audio into structured text for downstream analysis.</li>
-            <li>Applied sentiment and emotion detection to track tone and tension during sessions.</li>
-            <li>Aggregated metrics into visual cards summarizing collaboration, tension, and overall meeting health.</li>
+            <li>Used Whisper‑based transcription to convert meeting audio into structured text for downstream analysis. [file:87]</li>
+            <li>Applied sentiment and emotion detection to track tone and tension during sessions. [file:87]</li>
+            <li>Aggregated metrics into visual cards summarizing collaboration, tension, and overall meeting health. [file:87]</li>
           </ul>
           <p style="margin-top:4px;">
             <strong>Code &amp; paper:</strong>
