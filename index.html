@@ -30,6 +30,7 @@
       background: radial-gradient(circle at top, #e5edff 0, #f4f6ff 45%, #eef2ff 100%);
       color: var(--text-main);
       min-height: 100vh;
+      transition: background 500ms ease;
     }
 
     a {
@@ -128,8 +129,8 @@
       position: absolute;
       inset: -60%;
       background:
-        radial-gradient(circle at 0 0, rgba(129, 140, 248, 0.2), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(96, 165, 250, 0.24), transparent 55%);
+        radial-gradient(circle at 0 0, rgba(129, 140, 248, 0.16), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(96, 165, 250, 0.18), transparent 55%);
       opacity: 0.9;
       pointer-events: none;
     }
@@ -252,7 +253,7 @@
       font-weight: 700;
     }
 
-    /* STACKED SECTIONS (like reference site) */
+    /* STACKED SECTIONS */
     .section-wrap {
       padding: 0 18px 24px;
       max-width: 1120px;
@@ -329,7 +330,7 @@
       margin-bottom: 3px;
     }
 
-    /* PROJECT CARDS WITH IMAGES */
+    /* PROJECT CARDS – SOFT GRADIENTS, NO IMAGES */
     .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -339,10 +340,10 @@
 
     .project-card {
       border-radius: 22px;
-      background: var(--bg-soft);
-      color: var(--text-main);
-      padding: 12px 12px 10px;
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.18);
+      background-image: linear-gradient(135deg, #6366f1, #38bdf8);
+      color: #f9fafb;
+      padding: 14px 14px 12px;
+      box-shadow: 0 16px 38px rgba(15, 23, 42, 0.3);
       display: flex;
       flex-direction: column;
       cursor: pointer;
@@ -350,18 +351,26 @@
       transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
     }
 
-    .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.35);
-      filter: brightness(1.02);
+    .project-card:nth-child(2) {
+      background-image: linear-gradient(135deg, #22c55e, #4ade80);
     }
 
-    .project-image {
-      width: 100%;
-      height: 150px;
-      border-radius: 16px;
-      object-fit: cover;
-      margin-bottom: 8px;
+    .project-card:nth-child(3) {
+      background-image: linear-gradient(135deg, #fb923c, #f97316);
+    }
+
+    .project-card:nth-child(4) {
+      background-image: linear-gradient(135deg, #0ea5e9, #6366f1);
+    }
+
+    .project-card:nth-child(5) {
+      background-image: linear-gradient(135deg, #14b8a6, #818cf8);
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 50px rgba(15, 23, 42, 0.45);
+      filter: brightness(1.02);
     }
 
     .project-name {
@@ -372,7 +381,7 @@
 
     .project-meta {
       font-size: 11px;
-      color: var(--text-soft);
+      opacity: 0.9;
       margin-bottom: 6px;
       font-weight: 600;
     }
@@ -381,7 +390,7 @@
       font-size: 13px;
       line-height: 1.5;
       margin-bottom: 4px;
-      color: var(--text-soft);
+      opacity: 0.95;
     }
 
     .project-tags {
@@ -395,8 +404,8 @@
       font-size: 11px;
       padding: 3px 8px;
       border-radius: 999px;
-      background: var(--primary-soft);
-      color: #1d4ed8;
+      background: rgba(15, 23, 42, 0.2);
+      border: 1px solid rgba(249, 250, 251, 0.35);
       font-weight: 600;
     }
 
@@ -620,7 +629,7 @@
 </header>
 
 <!-- HERO -->
-<section id="home" class="hero-wrap">
+<section id="home" class="hero-wrap" data-bg="home">
   <div class="hero-card">
     <div class="hero-content">
       <div class="hero-photo-wrap">
@@ -630,7 +639,7 @@
         Hi, I&apos;m <span class="hero-name">Varshith Bala</span>
       </h1>
       <div class="hero-role">
-        <span>Data Science Student</span> &nbsp;·&nbsp; Aspiring Data Scientist
+        <span>Data Science Graduate</span> &nbsp;·&nbsp; Aspiring Data Scientist
       </div>
       <p class="hero-subtitle">
         Building data‑driven solutions with Python, SQL, and cloud platforms while exploring real‑world
@@ -655,34 +664,31 @@
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="section-wrap">
+<section id="about" class="section-wrap" data-bg="about">
   <div class="section-card">
     <h2 class="section-title">About Me</h2>
     <p>
-      I am currently pursuing an M.S. in Data Science at the University of North Texas, expecting to graduate in
-      December 2025 with a 4.0 GPA. With a strong academic foundation and experience working across healthcare,
-      cybersecurity, logistics, and conversational analytics, the goal is to use data to drive clear, measurable
-      impact.
+      Data Science graduate from the University of North Texas (M.S., Dec 2025, 4.0 GPA) with experience across
+      healthcare, cybersecurity, logistics, and conversational analytics. The focus is on using data to drive
+      clear, measurable impact.
     </p>
     <p style="margin-top:8px;">
-      Passion lies in building robust machine learning models and end‑to‑end analytics solutions that turn raw
-      data into actionable insights. Comfortable working with Python, R, SQL, and cloud platforms like AWS and
-      Google Cloud, as well as visualization tools such as Tableau and Power BI. Whether it is designing scalable
-      data pipelines, developing predictive models, or crafting executive‑ready dashboards, solving complex
-      problems with clean, well‑structured code is a core focus.
+      Enjoys building robust machine learning models and end‑to‑end analytics solutions that turn raw data into
+      actionable insights. Comfortable with Python, R, SQL, AWS, Google Cloud, Tableau, and Power BI for pipelines,
+      predictive modeling, and executive‑ready dashboards.
     </p>
     <p style="margin-top:8px;">
-      Hands‑on work includes a Data Analyst Internship with Phoenix Global, where SQL‑based data pipelines,
-      cleaned multi‑year IPL datasets, and dashboards improved decision‑making around player selection and team
-      strategy. Projects such as X‑ray image classification, cybersecurity threat detection, COVID‑19 cloud
-      analytics, a postal delivery tracking database, and a Meeting Health Dashboard have strengthened both the
-      technical depth and the ability to communicate results clearly for business stakeholders.
+      Previous work includes a Data Analyst Internship at Phoenix Global, where SQL‑based pipelines, cleaned
+      multi‑year IPL datasets, and dashboards improved decision‑making around player selection and team strategy.
+      Projects such as X‑ray image classification, cybersecurity threat detection, COVID‑19 cloud analytics,
+      a postal delivery tracking database, and a Meeting Health Dashboard strengthened both technical depth and
+      communication skills.
     </p>
   </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="section-wrap">
+<section id="skills" class="section-wrap" data-bg="skills">
   <div class="section-card">
     <h2 class="section-title">Skills</h2>
     <p class="section-subtitle">Tools and technologies used most frequently.</p>
@@ -700,20 +706,20 @@
 </section>
 
 <!-- EDUCATION -->
-<section id="education" class="section-wrap">
+<section id="education" class="section-wrap" data-bg="education">
   <div class="section-card">
     <h2 class="section-title">Education</h2>
     <div class="two-col" style="margin-top:8px;">
       <div>
         <p><strong>M.S. in Data Science</strong><br />
           University of North Texas, Denton, TX<br />
-          Dec 2025 · CGPA 4.0 / 4.0
+          Graduated Dec 2025 · CGPA 4.0 / 4.0
         </p>
       </div>
       <div>
         <p><strong>B.Tech in Computer Science and Engineering</strong><br />
           GITAM University, Visakhapatnam<br />
-          Apr 2023 · CGPA 8.78 / 10
+          Graduated Apr 2023 · CGPA 8.78 / 10
         </p>
       </div>
     </div>
@@ -721,7 +727,7 @@
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience" class="section-wrap">
+<section id="experience" class="section-wrap" data-bg="experience">
   <div class="section-card">
     <h2 class="section-title">Experience</h2>
     <div class="timeline">
@@ -743,88 +749,73 @@
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="section-wrap">
+<section id="projects" class="section-wrap" data-bg="projects">
   <div class="section-card">
     <h2 class="section-title">Featured Projects</h2>
 
     <div class="project-grid">
       <div class="project-card" data-project="xray">
-        <img src="xray_project.jpg" alt="X-Ray project" class="project-image" />
-        <div>
-          <div class="project-name">X‑Ray Image Classification</div>
-          <div class="project-meta">Python · TensorFlow · OpenCV · Healthcare</div>
-          <p class="project-text">
-            ML pipeline to classify pneumonia, COVID‑19, and normal lungs using 9,000 X‑ray images with
-            preprocessing and tuning to reach around 91% accuracy.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Computer Vision</span>
-            <span class="project-tag">Model Evaluation</span>
-          </div>
+        <div class="project-name">X‑Ray Image Classification</div>
+        <div class="project-meta">Python · TensorFlow · OpenCV · Healthcare</div>
+        <p class="project-text">
+          ML pipeline to classify pneumonia, COVID‑19, and normal lungs using 9,000 X‑ray images with
+          preprocessing and tuning to reach around 91% accuracy.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Computer Vision</span>
+          <span class="project-tag">Model Evaluation</span>
         </div>
       </div>
 
       <div class="project-card" data-project="security">
-        <img src="security_project.jpg" alt="Security project" class="project-image" />
-        <div>
-          <div class="project-name">Cybersecurity Threat Detection</div>
-          <div class="project-meta">Python · Tableau · Power BI</div>
-          <p class="project-text">
-            Log analytics project that detected more than 15 threat patterns and reduced incident response
-            time by roughly 30% using anomaly detection and risk‑score dashboards.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Anomaly Detection</span>
-            <span class="project-tag">Security Analytics</span>
-          </div>
+        <div class="project-name">Cybersecurity Threat Detection</div>
+        <div class="project-meta">Python · Tableau · Power BI</div>
+        <p class="project-text">
+          Log analytics project that detected more than 15 threat patterns and reduced incident response
+          time by roughly 30% using anomaly detection and risk‑score dashboards.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Anomaly Detection</span>
+          <span class="project-tag">Security Analytics</span>
         </div>
       </div>
 
       <div class="project-card" data-project="covid">
-        <img src="covid_project.jpg" alt="COVID analytics project" class="project-image" />
-        <div>
-          <div class="project-name">COVID‑19 Cloud Analytics</div>
-          <div class="project-meta">BigQuery · Hive · Spark</div>
-          <p class="project-text">
-            Evaluated U.S. COVID‑19 deaths by demographics and compared query performance across BigQuery,
-            Hive, and Spark to highlight high‑risk states and groups.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Big Data</span>
-            <span class="project-tag">Distributed SQL</span>
-          </div>
+        <div class="project-name">COVID‑19 Cloud Analytics</div>
+        <div class="project-meta">BigQuery · Hive · Spark</div>
+        <p class="project-text">
+          Evaluated U.S. COVID‑19 deaths by demographics and compared query performance across BigQuery,
+          Hive, and Spark to highlight high‑risk states and groups.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Big Data</span>
+          <span class="project-tag">Distributed SQL</span>
         </div>
       </div>
 
       <div class="project-card" data-project="postal">
-        <img src="postal_project.jpg" alt="Postal tracking database" class="project-image" />
-        <div>
-          <div class="project-name">Postal Delivery Tracking System</div>
-          <div class="project-meta">MySQL · SQL Server</div>
-          <p class="project-text">
-            Designed a normalized relational database for packages, customers, and routes with ER diagrams
-            and SQL reports for delivery performance and cost breakdowns.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Database Design</span>
-            <span class="project-tag">SQL</span>
-          </div>
+        <div class="project-name">Postal Delivery Tracking System</div>
+        <div class="project-meta">MySQL · SQL Server</div>
+        <p class="project-text">
+          Designed a normalized relational database for packages, customers, and routes with ER diagrams
+          and SQL reports for delivery performance and cost breakdowns.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Database Design</span>
+          <span class="project-tag">SQL</span>
         </div>
       </div>
 
       <div class="project-card" data-project="meeting">
-        <img src="meetingdashboard.jpg" alt="Meeting Health Dashboard" class="project-image" />
-        <div>
-          <div class="project-name">Meeting Health Dashboard</div>
-          <div class="project-meta">Whisper · Sentiment Analysis · Research Paper</div>
-          <p class="project-text">
-            NLP‑driven dashboard that measures collaboration health in meetings using speech‑to‑text,
-            sentiment, and emotion analysis over time.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">NLP</span>
-            <span class="project-tag">Speech‑to‑Text</span>
-          </div>
+        <div class="project-name">Meeting Health Dashboard</div>
+        <div class="project-meta">Whisper · Sentiment Analysis · Research Paper</div>
+        <p class="project-text">
+          NLP‑driven dashboard that measures collaboration health in meetings using speech‑to‑text,
+          sentiment, and emotion analysis over time.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">NLP</span>
+          <span class="project-tag">Speech‑to‑Text</span>
         </div>
       </div>
     </div>
@@ -832,7 +823,7 @@
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="section-wrap">
+<section id="contact" class="section-wrap" data-bg="contact">
   <div class="section-card">
     <h2 class="section-title">Contact</h2>
     <p class="section-subtitle">
@@ -868,7 +859,7 @@
 </div>
 
 <script>
-  // Fade sections in as you scroll (like reference)
+  // Fade sections in as you scroll
   const observer = new IntersectionObserver(
     entries => {
       entries.forEach(entry => {
@@ -880,6 +871,33 @@
     { threshold: 0.15 }
   );
   document.querySelectorAll('.section-card').forEach(card => observer.observe(card));
+
+  // Subtle "page" feeling by changing body background per section
+  const bgMap = {
+    home: 'radial-gradient(circle at top, #e5edff 0, #f4f6ff 45%, #eef2ff 100%)',
+    about: 'radial-gradient(circle at top, #eef2ff 0, #f9fafb 45%, #e5e7ff 100%)',
+    skills: 'radial-gradient(circle at top, #ecfeff 0, #f4f4ff 45%, #e0f2fe 100%)',
+    education: 'radial-gradient(circle at top, #fef9c3 0, #fefce8 45%, #f5f5ff 100%)',
+    experience: 'radial-gradient(circle at top, #fee2e2 0, #fef2f2 45%, #eef2ff 100%)',
+    projects: 'radial-gradient(circle at top, #fdf2ff 0, #fce7f3 45%, #eef2ff 100%)',
+    contact: 'radial-gradient(circle at top, #dcfce7 0, #ecfdf5 45%, #eef2ff 100%)'
+  };
+
+  const sectionObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const key = entry.target.getAttribute('data-bg');
+          if (bgMap[key]) {
+            document.body.style.background = bgMap[key];
+          }
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+
+  document.querySelectorAll('section[data-bg]').forEach(sec => sectionObserver.observe(sec));
 
   // Project modal data
   const projectDetails = {
@@ -906,9 +924,9 @@
       body: `
         <p>Analyzed authentication and network logs to surface suspicious behavior and support faster incident response.</p>
         <ul>
-          <li>Built parsing and aggregation scripts in Python to standardize multi-source security logs.</li>
-          <li>Applied clustering and anomaly detection techniques to identify more than 15 recurring threat patterns.</li>
-          <li>Designed Tableau and Power BI dashboards that visualized risk scores, spikes in activity, and IP reputation.</li>
+          <li>Standardized multi-source security logs with Python-based parsing and aggregation.</li>
+          <li>Applied clustering and anomaly detection to identify recurring threat patterns.</li>
+          <li>Designed Tableau and Power BI dashboards to visualize risk scores and spikes in activity.</li>
         </ul>
         <div class="modal-tags">
           <span class="modal-tag">Anomaly Detection</span>
@@ -923,9 +941,9 @@
       body: `
         <p>Compared distributed SQL engines while exploring how COVID‑19 mortality varied across states and demographics.</p>
         <ul>
-          <li>Cleaned public CDC datasets with OpenRefine and loaded them into BigQuery, Hive, and Spark tables.</li>
-          <li>Wrote equivalent queries across engines to study performance tradeoffs and cost implications.</li>
-          <li>Identified high‑risk age groups, regions, and temporal patterns to support public health decisions.</li>
+          <li>Cleaned public CDC datasets with OpenRefine and loaded them into BigQuery, Hive, and Spark.</li>
+          <li>Wrote equivalent queries across engines to study performance and cost tradeoffs.</li>
+          <li>Identified high‑risk age groups, regions, and temporal patterns for public health insights.</li>
         </ul>
         <div class="modal-tags">
           <span class="modal-tag">Big Data</span>
@@ -956,11 +974,10 @@
       body: `
         <p>Built a dashboard that scores the "health" of meetings by analyzing how sentiment and emotions evolve across a conversation.</p>
         <ul>
-          <li>Used Whisper to transcribe meeting audio into time-stamped text segments ready for NLP processing.</li>
-          <li>Applied sentiment and emotion classifiers to each segment to track positivity, tension, and alignment between participants.</li>
-          <li>Aggregated metrics into visual cards and time-series plots summarizing collaboration, conflict, and overall meeting health.</li>
+          <li>Used Whisper to transcribe meeting audio into time-stamped text segments.</li>
+          <li>Applied sentiment and emotion classifiers to track positivity, tension, and alignment.</li>
+          <li>Aggregated metrics into visual cards and time-series plots summarizing collaboration and conflict.</li>
         </ul>
-        <img src="meetingdashboard.jpg" alt="Meeting Health Dashboard overview" class="modal-image" />
         <div class="modal-tags">
           <span class="modal-tag">NLP</span>
           <span class="modal-tag">Speech-to-Text</span>
