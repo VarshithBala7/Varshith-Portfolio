@@ -108,10 +108,11 @@
     .hero-wrap {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 40px 18px 32px;
+      padding: 60px 18px 60px;
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
+      justify-content: center;
       text-align: center;
     }
 
@@ -176,7 +177,7 @@
     }
 
     .hero-title {
-      font-size: clamp(32px, 4vw, 40px);
+      font-size: clamp(34px, 4.5vw, 44px);
       font-weight: 900;
       margin-bottom: 6px;
     }
@@ -197,7 +198,7 @@
     }
 
     .hero-subtitle {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--text-soft);
       margin-bottom: 16px;
       max-width: 520px;
@@ -256,23 +257,46 @@
       font-weight: 700;
     }
 
-    /* GENERIC SECTIONS */
+    /* GENERIC FULL-PAGE SECTIONS */
     .section {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 18px 18px 6px;
+      padding: 80px 18px 80px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    #about {
+      background: radial-gradient(circle at top, #eff6ff 0, #f9fafb 45%, #eef2ff 100%);
+    }
+    #skills {
+      background: radial-gradient(circle at top, #ecfeff 0, #f4f4ff 40%, #eff6ff 100%);
+    }
+    #education {
+      background: radial-gradient(circle at top, #fef9c3 0, #fefce8 45%, #f5f5ff 100%);
+    }
+    #experience {
+      background: radial-gradient(circle at top, #fee2e2 0, #fef2f2 45%, #eef2ff 100%);
+    }
+    #projects {
+      background: radial-gradient(circle at top, #fdf2ff 0, #fce7f3 40%, #eef2ff 100%);
+    }
+    #contact {
+      background: radial-gradient(circle at top, #dcfce7 0, #ecfdf5 45%, #eef2ff 100%);
     }
 
     .section-card {
       background: var(--bg-soft);
       border-radius: 24px;
       box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
-      padding: 20px 18px 18px;
-      font-size: 14px;
+      padding: 28px 22px 24px;
+      font-size: 15px;
       color: var(--text-soft);
       opacity: 0;
-      transform: translateY(20px) scale(0.98);
-      transition: opacity 480ms ease-out, transform 480ms ease-out;
+      transform: translateY(24px) scale(0.97);
+      transition: opacity 500ms ease-out, transform 500ms ease-out;
+      width: 100%;
     }
 
     .section-card.visible {
@@ -281,7 +305,7 @@
     }
 
     .section-title {
-      font-size: 22px;
+      font-size: 26px;
       font-weight: 800;
       margin-bottom: 8px;
       color: var(--text-main);
@@ -290,7 +314,7 @@
 
     .section-subtitle {
       text-align: center;
-      font-size: 13px;
+      font-size: 14px;
       color: var(--text-soft);
       margin-bottom: 14px;
     }
@@ -303,7 +327,7 @@
     }
 
     .pill {
-      font-size: 12px;
+      font-size: 13px;
       padding: 6px 11px;
       border-radius: 999px;
       background: var(--primary-soft);
@@ -599,12 +623,8 @@
     }
 
     @keyframes floatPhoto {
-      from {
-        transform: translateY(0);
-      }
-      to {
-        transform: translateY(-8px);
-      }
+      from { transform: translateY(0); }
+      to { transform: translateY(-8px); }
     }
 
     @keyframes fadeIn {
@@ -890,7 +910,7 @@
 </div>
 
 <script>
-  // Intersection Observer to fade in sections with a "page" feel
+  // Fade/zoom sections when they enter view
   const observer = new IntersectionObserver(
     entries => {
       entries.forEach(entry => {
