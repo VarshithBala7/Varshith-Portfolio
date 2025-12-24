@@ -2,17 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Varshith Bala | Portfolio</title>
+  <title>Varshith Bala | Data Science Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #f5f7ff;
+      --bg: #f4f6ff;
       --bg-soft: #ffffff;
+      --bg-section: #f9fafb;
       --text-main: #111827;
       --text-soft: #6b7280;
       --primary: #2563eb;
       --primary-soft: #dbeafe;
       --accent: #4f46e5;
+      --accent-2: #22c55e;
       --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12);
       --radius-xl: 28px;
     }
@@ -27,7 +29,7 @@
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
-      background: radial-gradient(circle at top, #e5edff 0, #f5f7ff 45%, #eef2ff 100%);
+      background: radial-gradient(circle at top, #e5edff 0, #f4f6ff 45%, #eef2ff 100%);
       color: var(--text-main);
       min-height: 100vh;
     }
@@ -42,9 +44,9 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(to bottom, rgba(248, 250, 252, 0.96), rgba(248, 250, 252, 0.85));
-      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(248, 250, 252, 0.96), rgba(248, 250, 252, 0.88));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.28);
     }
 
     .nav-inner {
@@ -64,17 +66,31 @@
 
     .nav-links {
       display: flex;
-      gap: 18px;
+      gap: 22px;
       font-size: 13px;
     }
 
     .nav-links a {
       color: var(--text-soft);
       font-weight: 500;
+      position: relative;
+      padding-bottom: 3px;
     }
 
-    .nav-links a:hover {
-      color: var(--accent);
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #4f46e5);
+      transition: width 140ms ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
     }
 
     @media (max-width: 800px) {
@@ -99,7 +115,7 @@
       background: var(--bg-soft);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow-soft);
-      padding: 40px 18px 34px;
+      padding: 40px 18px 36px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -112,8 +128,8 @@
       position: absolute;
       inset: -60%;
       background:
-        radial-gradient(circle at 0 0, rgba(129, 140, 248, 0.16), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(96, 165, 250, 0.18), transparent 55%);
+        radial-gradient(circle at 0 0, rgba(129, 140, 248, 0.2), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(96, 165, 250, 0.24), transparent 55%);
       opacity: 0.9;
       pointer-events: none;
     }
@@ -137,7 +153,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.2);
+      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.18);
     }
 
     .hero-photo-inner {
@@ -174,14 +190,15 @@
     .hero-subtitle {
       font-size: 13px;
       color: var(--text-soft);
-      margin-bottom: 14px;
+      margin-bottom: 16px;
+      max-width: 520px;
     }
 
     .hero-buttons {
       display: flex;
       justify-content: center;
       gap: 12px;
-      margin-top: 10px;
+      margin-top: 8px;
       flex-wrap: wrap;
     }
 
@@ -215,7 +232,7 @@
     }
 
     .hero-contact {
-      margin-top: 12px;
+      margin-top: 14px;
       font-size: 13px;
       color: var(--text-soft);
     }
@@ -242,10 +259,18 @@
     }
 
     .section-title {
-      font-size: 18px;
+      font-size: 22px;
       font-weight: 700;
       margin-bottom: 8px;
       color: var(--text-main);
+      text-align: center;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-soft);
+      margin-bottom: 14px;
     }
 
     .pill-row {
@@ -285,50 +310,161 @@
       margin-bottom: 3px;
     }
 
-    .project-card {
+    /* PROJECT CARDS */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
       margin-top: 10px;
-      padding: 12px 12px 8px;
-      border-radius: 16px;
-      border: 1px solid rgba(209, 213, 219, 1);
-      background: #ffffff;
     }
 
-    .project-head {
+    .project-card {
+      border-radius: 22px;
+      background-image: linear-gradient(135deg, #4f46e5, #2563eb);
+      color: #f9fafb;
+      padding: 18px 16px 14px;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.35);
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
-      gap: 8px;
-      align-items: baseline;
     }
 
-    .project-head h3 {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-main);
+    .project-card:nth-child(2) {
+      background-image: linear-gradient(135deg, #16a34a, #22c55e);
+    }
+
+    .project-card:nth-child(3) {
+      background-image: linear-gradient(135deg, #f97316, #ec4899);
+    }
+
+    .project-card:nth-child(4) {
+      background-image: linear-gradient(135deg, #0ea5e9, #6366f1);
+    }
+
+    .project-name {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
     }
 
     .project-meta {
       font-size: 11px;
-      color: var(--text-soft);
+      opacity: 0.9;
+      margin-bottom: 8px;
     }
 
+    .project-text {
+      font-size: 13px;
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .project-tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.18);
+      border: 1px solid rgba(249, 250, 251, 0.3);
+    }
+
+    .project-links {
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    .project-links a {
+      color: #e5e7eb;
+      text-decoration: underline;
+    }
+
+    /* MEETING HEALTH CARD */
     .meeting-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
       gap: 12px;
-      margin-top: 6px;
+      margin-top: 8px;
       align-items: center;
     }
 
     .meeting-grid img {
       width: 100%;
-      border-radius: 14px;
-      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.18);
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.25);
     }
 
     @media (max-width: 800px) {
       .meeting-grid {
         grid-template-columns: 1fr;
       }
+    }
+
+    /* EXPERIENCE TIMELINE STYLE */
+    .timeline {
+      position: relative;
+      margin-top: 10px;
+      padding-left: 24px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #2563eb, #4f46e5);
+      opacity: 0.35;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 12px 0 10px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 1px;
+      top: 16px;
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: #2563eb;
+      border: 3px solid #e5edff;
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+    }
+
+    .timeline-content {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 10px 12px 8px;
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06);
+      border: 1px solid rgba(209, 213, 219, 0.8);
+    }
+
+    .timeline-role {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .timeline-sub {
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-bottom: 4px;
+    }
+
+    .timeline-date {
+      font-size: 11px;
+      color: var(--primary);
+      font-weight: 500;
+      float: right;
     }
 
     footer {
@@ -359,7 +495,7 @@
   </div>
 </header>
 
-<!-- HOME (CENTERED HERO ONLY) -->
+<!-- HOME / HERO -->
 <section id="home" class="hero-wrap">
   <div class="hero-card">
     <div class="hero-content">
@@ -373,7 +509,8 @@
         <span>Data Science Student</span> &nbsp;·&nbsp; Aspiring Data Scientist
       </div>
       <p class="hero-subtitle">
-        Building data‑driven solutions with Python, SQL, and cloud platforms while exploring real‑world machine learning and analytics projects.
+        Building data‑driven solutions with Python, SQL, and cloud platforms while exploring real‑world
+        machine learning and analytics projects.
       </p>
 
       <div class="hero-buttons">
@@ -393,18 +530,29 @@
   </div>
 </section>
 
-<!-- ABOUT (FULL INTRO TEXT) -->
+<!-- ABOUT -->
 <section id="about" class="section">
   <div class="section-card">
     <h2 class="section-title">About Me</h2>
     <p>
-      I am currently pursuing an M.S. in Data Science at the University of North Texas, expecting to graduate in December 2025 with a 4.0 GPA. With a strong academic foundation and experience working across healthcare, cybersecurity, logistics, and IoT domains, I am committed to using data to drive clear, measurable impact. [file:1][file:83]
+      I am currently pursuing an M.S. in Data Science at the University of North Texas, expecting to graduate in
+      December 2025 with a 4.0 GPA. With a strong academic foundation and experience working across healthcare,
+      cybersecurity, logistics, and conversational analytics, the goal is to use data to drive clear, measurable
+      impact.
     </p>
     <p style="margin-top:8px;">
-      My passion lies in building robust machine learning models and end‑to‑end analytics solutions that turn raw data into actionable insights. I have hands‑on experience with Python, R, SQL, and cloud platforms such as AWS and Google Cloud, along with tools like Tableau and Power BI. Whether it is designing scalable data pipelines, developing predictive models, or crafting executive‑ready dashboards, I enjoy solving complex problems with clean, well‑structured code and thoughtful analysis. [file:1][file:83]
+      Passion lies in building robust machine learning models and end‑to‑end analytics solutions that turn raw
+      data into actionable insights. Comfortable working with Python, R, SQL, and cloud platforms like AWS and
+      Google Cloud, as well as visualization tools such as Tableau and Power BI. Whether it is designing scalable
+      data pipelines, developing predictive models, or crafting executive‑ready dashboards, solving complex
+      problems with clean, well‑structured code is a core focus.
     </p>
     <p style="margin-top:8px;">
-      Beyond coursework, I have worked as a Data Analyst Intern at Phoenix Global, where I built SQL‑based data pipelines, automated cleaning of multi‑year IPL datasets, and created dashboards that improved decision‑making around player selection and team strategy. These projects, along with building systems like an X‑ray image classifier, a cybersecurity threat detection pipeline, and a postal delivery tracking database, have strengthened both my technical depth and my ability to communicate complex results in a clear, business‑focused way. Looking ahead, I aspire to grow as a Data Scientist, contributing to teams that build reliable, data‑driven products and analytics platforms, while continuously learning and applying best practices in real‑world environments. [file:1][file:83]
+      Hands‑on work includes a Data Analyst Internship with Phoenix Global, where SQL‑based data pipelines,
+      cleaned multi‑year IPL datasets, and dashboards improved decision‑making around player selection and team
+      strategy. Projects such as X‑ray image classification, cybersecurity threat detection, COVID‑19 cloud
+      analytics, a postal delivery tracking database, and a Meeting Health Dashboard have strengthened both the
+      technical depth and the ability to communicate results clearly for business stakeholders.
     </p>
   </div>
 </section>
@@ -413,6 +561,7 @@
 <section id="skills" class="section">
   <div class="section-card">
     <h2 class="section-title">Skills</h2>
+    <p class="section-subtitle">Tools and technologies used most frequently.</p>
     <div class="pill-row">
       <span class="pill">Python · Pandas · NumPy · Scikit‑learn</span>
       <span class="pill">R · SQL (MySQL, SQL Server)</span>
@@ -430,7 +579,7 @@
 <section id="education" class="section">
   <div class="section-card">
     <h2 class="section-title">Education</h2>
-    <div class="two-col">
+    <div class="two-col" style="margin-top:8px;">
       <div>
         <p><strong>M.S. in Data Science</strong><br />
           University of North Texas, Denton, TX<br />
@@ -451,83 +600,118 @@
 <section id="experience" class="section">
   <div class="section-card">
     <h2 class="section-title">Experience</h2>
-    <p><strong>Data Analyst Intern · Phoenix Global</strong><br />
-      May 2022 – Aug 2022 · Sports analytics
-    </p>
-    <ul class="list">
-      <li>Created SQL‑based data pipelines to preprocess multi‑year IPL sports datasets, improving query efficiency and analysis accuracy. [file:1][file:83]</li>
-      <li>Built interactive dashboards in Excel and Tableau to visualize player performance, team statistics, and win‑loss trends for decision‑makers. [file:1][file:83]</li>
-      <li>Applied advanced analytics to uncover hidden patterns in match data, supporting better lineup strategies and strategic planning. [file:1][file:83]</li>
-    </ul>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">May 2022 – Aug 2022</div>
+          <div class="timeline-role">Data Analyst Intern</div>
+          <div class="timeline-sub">Phoenix Global · Sports analytics</div>
+          <ul class="list">
+            <li>Created SQL‑based data pipelines to preprocess multi‑year IPL datasets, improving query efficiency and analysis accuracy.</li>
+            <li>Built interactive dashboards in Excel and Tableau to visualize player performance, team statistics, and win‑loss trends.</li>
+            <li>Applied advanced analytics to uncover hidden patterns in match data, supporting better lineup strategies and strategic planning.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects" class="section">
   <div class="section-card">
-    <h2 class="section-title">Projects</h2>
+    <h2 class="section-title">Featured Projects</h2>
 
-    <div class="project-card">
-      <div class="project-head">
-        <h3>X‑Ray Image Classification</h3>
-        <span class="project-meta">Python · TensorFlow · OpenCV · Healthcare ML</span>
+    <div class="project-grid">
+      <div class="project-card">
+        <div>
+          <div class="project-name">X‑Ray Image Classification</div>
+          <div class="project-meta">Python · TensorFlow · OpenCV · Healthcare</div>
+          <p class="project-text">
+            Built an ML pipeline to classify pneumonia, COVID‑19, and normal lung conditions using 9,000 chest
+            X‑ray images with preprocessing, augmentation, and hyperparameter tuning to reach around 91% accuracy.
+          </p>
+        </div>
+        <div>
+          <div class="project-tags">
+            <span class="project-tag">CNN / Classical ML</span>
+            <span class="project-tag">Image Processing</span>
+          </div>
+          <!-- add GitHub link when ready -->
+        </div>
       </div>
-      <ul class="list">
-        <li>Developed an ML pipeline to classify pneumonia, COVID‑19, and normal lung conditions using 9,000 chest X‑ray images. [file:1][file:83]</li>
-        <li>Implemented preprocessing, augmentation, and feature extraction, then trained KNN and Random Forest models with hyperparameter tuning to reach about 91% accuracy. [file:1][file:83]</li>
-      </ul>
+
+      <div class="project-card">
+        <div>
+          <div class="project-name">Cybersecurity Threat Detection</div>
+          <div class="project-meta">Python · Tableau · Power BI</div>
+          <p class="project-text">
+            Analyzed security logs to detect over 15 threat patterns and reduced incident response time by about
+            30% using anomaly detection techniques and risk‑score dashboards.
+          </p>
+        </div>
+        <div>
+          <div class="project-tags">
+            <span class="project-tag">Anomaly Detection</span>
+            <span class="project-tag">Security Analytics</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <div class="project-name">COVID‑19 Cloud Analytics</div>
+          <div class="project-meta">BigQuery · Hive · Spark</div>
+          <p class="project-text">
+            Used distributed SQL engines to analyze U.S. COVID‑19 deaths by demographics, identified high‑risk
+            states and groups, and compared query performance across platforms.
+          </p>
+        </div>
+        <div>
+          <div class="project-tags">
+            <span class="project-tag">Big Data</span>
+            <span class="project-tag">Cloud Analytics</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <div class="project-name">Postal Delivery Tracking System</div>
+          <div class="project-meta">MySQL · SQL Server</div>
+          <p class="project-text">
+            Designed a relational database for packages, customers, and routes with normalized schemas, ER
+            diagrams, and reporting queries for delivery performance and cost breakdowns.
+          </p>
+        </div>
+        <div>
+          <div class="project-tags">
+            <span class="project-tag">Database Design</span>
+            <span class="project-tag">SQL</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="project-card">
-      <div class="project-head">
-        <h3>Cybersecurity Threat Detection</h3>
-        <span class="project-meta">Python · Tableau · Power BI</span>
-      </div>
-      <ul class="list">
-        <li>Analyzed security logs to detect more than 15 unique threat patterns and improve incident response time by roughly 30%. [file:1][file:83]</li>
-        <li>Built Tableau and Power BI dashboards that surface risk scores and suspicious activity trends for security teams. [file:1][file:83]</li>
-      </ul>
-    </div>
-
-    <div class="project-card">
-      <div class="project-head">
-        <h3>COVID‑19 Cloud Analytics</h3>
-        <span class="project-meta">BigQuery · Hive · Spark</span>
-      </div>
-      <ul class="list">
-        <li>Used BigQuery, Hive, and Spark to analyze U.S. COVID‑19 deaths by age, sex, and location across multiple cloud platforms. [file:1][file:83]</li>
-        <li>Identified high‑risk states and demographic groups and compared query performance between engines to guide future analytics choices. [file:1][file:83]</li>
-      </ul>
-    </div>
-
-    <div class="project-card">
-      <div class="project-head">
-        <h3>Postal Delivery Tracking System</h3>
-        <span class="project-meta">MySQL · SQL Server</span>
-      </div>
-      <ul class="list">
-        <li>Designed and implemented a relational database to manage packages, customers, and delivery routes for a real‑time tracking system. [file:1][file:83]</li>
-        <li>Created normalized tables, ER diagrams, and reporting queries for delivery performance and cost summaries. [file:1][file:83]</li>
-      </ul>
-    </div>
-
-    <div class="project-card">
-      <div class="project-head">
-        <h3>Meeting Health Dashboard</h3>
-        <span class="project-meta">NLP · Whisper · Sentiment Analysis · Research</span>
+    <!-- Meeting Health Dashboard as a wide card -->
+    <div style="margin-top:20px;">
+      <div class="project-name" style="color:#111827;">Meeting Health Dashboard (NLP)</div>
+      <div class="project-meta" style="color:#4b5563; margin-bottom:6px;">
+        Whisper · Sentiment Analysis · Research Paper
       </div>
       <div class="meeting-grid">
         <div>
-          <p>
-            Built an NLP‑driven dashboard that evaluates the “health” of meetings by analyzing transcripts for sentiment,
-            emotion, and collaboration patterns over time. [file:87]
+          <p class="project-text" style="color:#374151;">
+            Developed a dashboard that evaluates the “health” of meetings by converting audio to text with Whisper
+            and analyzing transcripts for sentiment, emotion, and collaboration patterns over time.
           </p>
-          <ul class="list">
-            <li>Used Whisper‑based transcription to convert meeting audio into structured text for downstream analysis. [file:87]</li>
-            <li>Applied sentiment and emotion detection to track tone and tension during sessions. [file:87]</li>
-            <li>Aggregated metrics into visual cards summarizing collaboration, tension, and overall meeting health. [file:87]</li>
+          <ul class="list" style="color:#4b5563;">
+            <li>Built a transcription pipeline to turn meeting audio into structured text for downstream analysis.</li>
+            <li>Applied sentiment and emotion detection models to track tone, tension, and alignment across participants.</li>
+            <li>Aggregated metrics into visual cards summarizing collaboration, tension, and overall meeting health for each session.</li>
           </ul>
-          <p style="margin-top:4px;">
+          <p class="project-links">
             <strong>Code &amp; paper:</strong>
             <a href="https://github.com/VarshithBala7/Meeting_Health_Dashboard" target="_blank" rel="noreferrer">
               GitHub repository
@@ -550,10 +734,10 @@
 <section id="contact" class="section">
   <div class="section-card">
     <h2 class="section-title">Contact</h2>
-    <p>
-      Open to full‑time Data Scientist roles and collaborative analytics or ML projects. The best way to reach out is via email or LinkedIn.
+    <p class="section-subtitle">
+      Open to full‑time Data Scientist roles and collaborative analytics or ML projects.
     </p>
-    <p style="margin-top:6px;">
+    <p style="text-align:center; font-size:14px; color:var(--text-soft);">
       <strong>Email:</strong> <a href="mailto:varshithbala0702@gmail.com">varshithbala0702@gmail.com</a><br />
       <strong>Phone:</strong> +1‑346‑418‑6966<br />
       <strong>LinkedIn:</strong>
