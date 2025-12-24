@@ -108,7 +108,7 @@
     .hero-wrap {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 60px 18px 60px;
+      padding: 40px 18px 40px;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -257,12 +257,12 @@
       font-weight: 700;
     }
 
-    /* GENERIC FULL-PAGE SECTIONS */
+    /* SECTIONS – tighter gaps but full screen feel */
     .section {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 80px 18px 80px;
-      min-height: 100vh;
+      padding: 40px 18px 40px;
+      min-height: 90vh;
       display: flex;
       align-items: center;
     }
@@ -290,7 +290,7 @@
       background: var(--bg-soft);
       border-radius: 24px;
       box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
-      padding: 28px 22px 24px;
+      padding: 24px 22px 22px;
       font-size: 15px;
       color: var(--text-soft);
       opacity: 0;
@@ -357,60 +357,51 @@
       margin-bottom: 3px;
     }
 
-    /* PROJECT CARDS */
+    /* PROJECT CARDS WITH IMAGES */
     .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
+      gap: 16px;
       margin-top: 10px;
     }
 
     .project-card {
       border-radius: 22px;
-      background-image: linear-gradient(135deg, #4f46e5, #2563eb);
-      color: #f9fafb;
-      padding: 18px 16px 14px;
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.35);
+      background: var(--bg-soft);
+      color: var(--text-main);
+      padding: 14px 14px 12px;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.18);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       cursor: pointer;
       transform: translateY(0);
       transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
     }
 
-    .project-card:nth-child(2) {
-      background-image: linear-gradient(135deg, #16a34a, #22c55e);
-    }
-
-    .project-card:nth-child(3) {
-      background-image: linear-gradient(135deg, #f97316, #ec4899);
-    }
-
-    .project-card:nth-child(4) {
-      background-image: linear-gradient(135deg, #0ea5e9, #6366f1);
-    }
-
-    .project-card:nth-child(5) {
-      background-image: linear-gradient(135deg, #14b8a6, #6366f1);
-    }
-
     .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 26px 55px rgba(15, 23, 42, 0.5);
-      filter: brightness(1.04);
+      transform: translateY(-5px);
+      box-shadow: 0 22px 45px rgba(15, 23, 42, 0.35);
+      filter: brightness(1.02);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 150px;
+      border-radius: 16px;
+      object-fit: cover;
+      margin-bottom: 10px;
     }
 
     .project-name {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 800;
       margin-bottom: 4px;
     }
 
     .project-meta {
       font-size: 11px;
-      opacity: 0.9;
-      margin-bottom: 8px;
+      color: var(--text-soft);
+      margin-bottom: 6px;
       font-weight: 600;
     }
 
@@ -418,21 +409,22 @@
       font-size: 13px;
       line-height: 1.5;
       margin-bottom: 6px;
+      color: var(--text-soft);
     }
 
     .project-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
     .project-tag {
       font-size: 11px;
       padding: 3px 8px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.18);
-      border: 1px solid rgba(249, 250, 251, 0.3);
+      background: var(--primary-soft);
+      color: #1d4ed8;
       font-weight: 600;
     }
 
@@ -640,7 +632,6 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
 <header class="nav-shell">
   <div class="nav-inner">
     <div class="nav-brand">Varshith&apos;s Portfolio</div>
@@ -656,7 +647,7 @@
   </div>
 </header>
 
-<!-- HOME / HERO -->
+<!-- HERO -->
 <section id="home" class="hero-wrap">
   <div class="hero-card">
     <div class="hero-content">
@@ -786,6 +777,7 @@
 
     <div class="project-grid">
       <div class="project-card" data-project="xray">
+        <img src="xray_project.jpg" alt="X-Ray project" class="project-image" />
         <div>
           <div class="project-name">X‑Ray Image Classification</div>
           <div class="project-meta">Python · TensorFlow · OpenCV · Healthcare</div>
@@ -793,8 +785,6 @@
             ML pipeline to classify pneumonia, COVID‑19, and normal lungs using 9,000 X‑ray images with
             preprocessing and tuning to reach around 91% accuracy.
           </p>
-        </div>
-        <div>
           <div class="project-tags">
             <span class="project-tag">Computer Vision</span>
             <span class="project-tag">Model Evaluation</span>
@@ -803,6 +793,7 @@
       </div>
 
       <div class="project-card" data-project="security">
+        <img src="security_project.jpg" alt="Security project" class="project-image" />
         <div>
           <div class="project-name">Cybersecurity Threat Detection</div>
           <div class="project-meta">Python · Tableau · Power BI</div>
@@ -810,8 +801,6 @@
             Log analytics project that detected more than 15 threat patterns and reduced incident response
             time by roughly 30% using anomaly detection and risk‑score dashboards.
           </p>
-        </div>
-        <div>
           <div class="project-tags">
             <span class="project-tag">Anomaly Detection</span>
             <span class="project-tag">Security Analytics</span>
@@ -820,6 +809,7 @@
       </div>
 
       <div class="project-card" data-project="covid">
+        <img src="covid_project.jpg" alt="COVID analytics project" class="project-image" />
         <div>
           <div class="project-name">COVID‑19 Cloud Analytics</div>
           <div class="project-meta">BigQuery · Hive · Spark</div>
@@ -827,8 +817,6 @@
             Evaluated U.S. COVID‑19 deaths by demographics and compared query performance across BigQuery,
             Hive, and Spark to highlight high‑risk states and groups.
           </p>
-        </div>
-        <div>
           <div class="project-tags">
             <span class="project-tag">Big Data</span>
             <span class="project-tag">Distributed SQL</span>
@@ -837,6 +825,7 @@
       </div>
 
       <div class="project-card" data-project="postal">
+        <img src="postal_project.jpg" alt="Postal tracking database" class="project-image" />
         <div>
           <div class="project-name">Postal Delivery Tracking System</div>
           <div class="project-meta">MySQL · SQL Server</div>
@@ -844,8 +833,6 @@
             Designed a normalized relational database for packages, customers, and routes with ER diagrams
             and SQL reports for delivery performance and cost breakdowns.
           </p>
-        </div>
-        <div>
           <div class="project-tags">
             <span class="project-tag">Database Design</span>
             <span class="project-tag">SQL</span>
@@ -854,6 +841,7 @@
       </div>
 
       <div class="project-card" data-project="meeting">
+        <img src="meetingdashboard.jpg" alt="Meeting Health Dashboard" class="project-image" />
         <div>
           <div class="project-name">Meeting Health Dashboard</div>
           <div class="project-meta">Whisper · Sentiment Analysis · Research Paper</div>
@@ -861,8 +849,6 @@
             NLP‑driven dashboard that measures collaboration health in meetings using speech‑to‑text,
             sentiment, and emotion analysis over time.
           </p>
-        </div>
-        <div>
           <div class="project-tags">
             <span class="project-tag">NLP</span>
             <span class="project-tag">Speech‑to‑Text</span>
